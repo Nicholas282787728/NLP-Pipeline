@@ -1784,14 +1784,7 @@ final public class BasicOperations {
 							sizeDestSeparator += dest_sep.size();
 						}
 
-						int difference = i + 1 - start;
-						String token = str.substring(start,i+1);
-						String [] problematicsArr = {"co","Co","Prof","prof","p.m","Ga","ga","Inc","Corp","Ila",
-								"Jr","JR","jr","Sr","SR","sr","Ill","Colo","colo","miss","Miss","Mr","Calif",
-								"calif","N.Y","St","st","Minn","Pa","pa","Md","md","N.J","Ore","La","Nev","Mrs"};
-						List<String> problematics = Arrays.asList(problematicsArr);
-						if ((i!=str.length()-2) && (sizeDestSeparator == 0 || (c=='.' && difference==1) ||
-                                (problematics.contains(token)) )){
+						if ((i!=str.length()-2) && sizeDestSeparator == 0 ){
 								i = i + 1;
 						} else {
 							// Found a separator so the token is possible
